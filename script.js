@@ -372,16 +372,21 @@ function mostraDomanda() {
         // Immagine già generata
         immagineAI.src = immaginiGenerate[indiceDomandaCorrente];
     } else {
-        // Immagine placeholder temporanea con gradiente colorato
+        // Immagine placeholder temporanea con gradiente colorato diverso per ogni domanda
         const colors = [
-            'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-            'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-            'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-            'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+            ['%23667eea', '%23764ba2'],
+            ['%23f093fb', '%23f5576c'],
+            ['%234facfe', '%2300f2fe'],
+            ['%2343e97b', '%2338f9d7'],
+            ['%23fa709a', '%23fee140'],
+            ['%236a11cb', '%232575fc'],
+            ['%23ee7752', '%23e73c7e'],
+            ['%2324c6dc', '%2351eb5a']
         ];
-        const randomColor = colors[indiceDomandaCorrente % colors.length];
-        immagineAI.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23grad)' /%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle'%3E🎨 Caricamento...%3C/text%3E%3C/svg%3E`;
+        const colorIndex = indiceDomandaCorrente % colors.length;
+        const [color1, color2] = colors[colorIndex];
+        const numerodomanda = indiceDomandaCorrente + 1;
+        immagineAI.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Cdefs%3E%3ClinearGradient id='grad${colorIndex}' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:${color1};stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:${color2};stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23grad${colorIndex})' /%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle'%3E🎨 Caricamento domanda ${numerodomanda}...%3C/text%3E%3C/svg%3E`;
     }
     immagineAI.style.display = 'block';
     
@@ -408,11 +413,14 @@ async function generaImmagineAI(testoDomanda, seed = null) {
             `educational illustration about: ${testoDomanda.substring(0, 100)}, simple, clean, colorful`
         );
         
-        // Usa seed per evitare duplicati
-        const seedValue = seed !== null ? seed : Math.floor(Math.random() * 10000);
+        // Usa seed univoco basato sull'indice della domanda per assicurare immagini diverse
+        // Il seed deve essere un numero intero tra 0 e 2147483647
+        const seedValue = seed !== null && seed !== undefined ? Math.abs(seed) : Math.floor(Math.random() * 2147483647);
         
         // Pollinations.ai - API gratuita e velocissima
-        const imageUrl = `https://image.pollinations.ai/prompt/${prompt}?width=800&height=450&nologo=true&seed=${seedValue}`;
+        // Aggiungi timestamp e cache buster per evitare problemi di cache
+        const timestamp = Date.now();
+        const imageUrl = `https://image.pollinations.ai/prompt/${prompt}?width=800&height=450&nologo=true&seed=${seedValue}&t=${timestamp}`;
         
         // Ritorna subito l'URL senza aspettare il caricamento
         // L'immagine sarà caricata nel browser quando viene usata
