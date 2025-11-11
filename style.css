@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -12,11 +16,14 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    width: 100%;
+    margin: 0;
 }
 
 .screen {
     display: none;
     width: 100%;
+    max-width: 900px;
     animation: fadeIn 0.5s ease-in;
 }
 
@@ -30,13 +37,16 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    width: 100%;
+    max-width: 850px;
     margin: 0 auto;
     background: white;
     border-radius: 20px;
     padding: 40px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     position: relative;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 h1 {
@@ -562,13 +572,18 @@ h1 {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .container {
-        padding: 25px;
+        max-width: 95%;
+        padding: 30px 20px;
     }
     
     h1 {
-        font-size: 2em;
+        font-size: 1.8em;
+    }
+    
+    .question-text {
+        font-size: 1.5em;
     }
     
     .answers-container {
@@ -583,6 +598,22 @@ h1 {
         flex-direction: column;
     }
     
+    .top-buttons {
+        flex-direction: column;
+        gap: 8px;
+        width: auto;
+        position: static;
+        top: auto;
+        right: auto;
+        margin-bottom: 20px;
+    }
+    
+    .btn-secondary-small {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 0.9em;
+    }
+    
     .image-container {
         min-height: 200px;
         max-height: 300px;
@@ -592,7 +623,72 @@ h1 {
         max-height: 300px;
     }
     
+    .flashcard {
+        padding: 20px;
+    }
+    
+    .image-counter {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 20px;
+        border-radius: 15px;
+    }
+    
+    h1 {
+        font-size: 1.6em;
+        margin-bottom: 8px;
+    }
+    
+    .subtitle {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+    
     .question-text {
-        font-size: 1.4em;
+        font-size: 1.3em;
+        margin-bottom: 20px;
+    }
+    
+    .answer-btn {
+        padding: 15px;
+        font-size: 1em;
+    }
+    
+    .attempt-card {
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .stat-card h2 {
+        font-size: 2.2em;
+    }
+    
+    .explanation-container {
+        padding: 15px;
+    }
+    
+    .image-container {
+        min-height: 150px;
+        max-height: 250px;
+        margin-bottom: 20px;
+    }
+    
+    #domandeInput {
+        min-height: 200px;
+        font-size: 13px;
+    }
+    
+    .progress-text {
+        font-size: 0.95em;
     }
 }
