@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- KaTeX per LaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+    <!-- Schermata Iniziale -->
+    <div id="menuIniziale" class="screen active">
+        <div class="container">
+            <h1>🎓 Flashcard Quiz</h1>
+            <p class="subtitle">Incolla le tue domande in formato JSON e inizia il quiz!</p>
+            
+            <div class="input-section">
+                <label for="domandeInput" class="input-label">
+                    <span>📝 Formato JSON delle domande:</span>
+                    <button id="btnCopiaEsempio" class="btn-copy" title="Copia esempio">📋 Copia Esempio</button>
+                </label>
+                <textarea id="domandeInput" placeholder='Incolla qui le domande in formato JSON...'></textarea>
+                <div id="esempioJSON" class="esempio-json">
+[
+  {
+    "domanda": "Qual è la capitale dell'Italia?",
+    "risposte": ["Roma", "Milano", "Napoli", "Torino"],
+    "corretta": 0,
+    "spiegazione": "Roma è la capitale d'Italia dal 1871."
+  }
+]</div>
+            </div>
+            
+            <div class="button-group">
+                <button id="btnCarica" class="btn btn-primary">Carica Domande</button>
+                <button id="btnCancella" class="btn btn-secondary">Libera Casella</button>
+            </div>
+            
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+    </div>
+
+    <!-- Schermata Flashcard -->
+    <div id="schermaFlashcard" class="screen">
+        <div class="container">
+            <!-- Contatore generazione immagini -->
+            <div id="contatoreImmagini" class="image-counter">
+                <span class="counter-icon">🎨</span>
+                <span class="counter-text">Generazione immagini: <span id="immaginiCaricate">0</span>/<span id="immaginiTotali">0</span></span>
+            </div>
+            
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
+            <p class="progress-text">Domanda <span id="numeroDomanda">1</span> di <span id="totaleDomande">0</span></p>
+            
+            <div class="flashcard">
+                <div class="image-container">
+                    <img id="immagineAI" src="" alt="Immagine generata" class="ai-image">
+                </div>
+                
+                <h2 id="testoDomanda" class="question-text"></h2>
+                
+                <div id="containerRisposte" class="answers-container"></div>
+                
+                <div id="spiegazioneContainer" class="explanation-container hidden">
+                    <h3>✅ Corretto!</h3>
+                    <p id="testoSpiegazione"></p>
+                    <button id="btnProssima" class="btn btn-next">Prossima Domanda →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Schermata Riepilogo -->
+    <div id="schermaRiepilogo" class="screen">
+        <div class="container">
+            <h1>📊 Riepilogo Quiz</h1>
+            
+            <div class="summary-stats">
+                <div class="stat-card">
+                    <h2 id="risposteCorrette">0</h2>
+                    <p>Risposte corrette<br>al primo tentativo</p>
+                </div>
+                <div class="stat-card">
+                    <h2 id="totaleDomandeRiepilogo">0</h2>
+                    <p>Domande totali</p>
+                </div>
+            </div>
+            
+            <h3>Dettaglio Tentativi</h3>
+            <div id="dettaglioTentativi" class="attempts-detail"></div>
+            
+            <button id="btnRicomincia" class="btn btn-primary">🔄 Torna al Menu Iniziale</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

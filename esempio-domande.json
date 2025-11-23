@@ -1,0 +1,79 @@
+[
+  {
+    "domanda": "Cosa studia la Fisiologia?",
+    "risposte": [
+      "La forma e la struttura del corpo",
+      "Il funzionamento degli organismi viventi",
+      "Le ossa del braccio",
+      "La composizione chimica delle cellule"
+    ],
+    "corretta": 1,
+    "spiegazione": "La Fisiologia è la branca della biologia che studia il funzionamento degli organismi viventi, cioè come lavorano gli organi, i tessuti e le cellule."
+  },
+  {
+    "domanda": "L'Istologia e la Citologia sono branche dell'Anatomia Macroscopica?",
+    "risposte": [
+      "Sì, entrambe studiano gli organi visibili",
+      "No, entrambe sono branche dell'Anatomia Microscopica",
+      "Solo l'Istologia è microscopica, la Citologia è macroscopica",
+      "Solo la Citologia è microscopica, l'Istologia è macroscopica"
+    ],
+    "corretta": 1,
+    "spiegazione": "L'Anatomia Microscopica studia le strutture troppo piccole per essere viste a occhio nudo e comprende la Citologia (studio delle cellule) e l'Istologia (studio dei tessuti). L'Anatomia Macroscopica studia le strutture visibili a occhio nudo."
+  },
+  {
+    "domanda": "Quale dei seguenti NON è uno dei quattro tipi principali di tessuti?",
+    "risposte": [
+      "Epiteliale",
+      "Muscolare",
+      "Connettivo",
+      "Scheletrico"
+    ],
+    "corretta": 3,
+    "spiegazione": "I quattro tipi principali di tessuti sono: Epiteliale (rivestimento), Muscolare (movimento), Nervoso (trasmissione segnali) e Connettivo (sostegno e collegamento). Lo scheletrico è un sistema, non un tipo di tessuto base."
+  },
+  {
+    "domanda": "Quale livello organizzativo è gerarchicamente inferiore alla Cellula ma superiore alle Strutture Molecolari?",
+    "risposte": [
+      "Tessuto",
+      "Organo",
+      "Organulo",
+      "Apparato"
+    ],
+    "corretta": 2,
+    "spiegazione": "Seguendo i livelli organizzativi in ordine decrescente (dal più grande al più piccolo): Apparati/Sistemi, Organi, Tessuti, Cellule, Organuli, Strutture molecolari. L'Organulo si trova tra la Cellula e le Strutture molecolari."
+  },
+  {
+    "domanda": "Qual è la differenza principale tra Sistema e Apparato?",
+    "risposte": [
+      "Il Sistema usa organi simili, l'Apparato organi diversi",
+      "L'Apparato usa organi simili, il Sistema organi diversi",
+      "Il Sistema è solo per il movimento, l'Apparato per la digestione",
+      "Non c'è nessuna differenza, sono sinonimi"
+    ],
+    "corretta": 0,
+    "spiegazione": "Un Sistema è formato da organi simili per struttura e funzione (es. sistema nervoso). Un Apparato è composto da organi diversi per struttura e origine, ma coordinati per una funzione comune (es. apparato digerente)."
+  },
+  {
+    "domanda": "Il Sistema Scheletrico e l'Apparato Muscolare fanno parte degli apparati della vita di relazione o vegetativa?",
+    "risposte": [
+      "Entrambi della vita vegetativa",
+      "Entrambi della vita di relazione",
+      "Il Muscolare è di relazione, lo Scheletrico è vegetativo",
+      "Lo Scheletrico è di relazione, il Muscolare è vegetativo"
+    ],
+    "corretta": 1,
+    "spiegazione": "Gli apparati della vita di relazione permettono all'organismo di interagire con l'ambiente esterno. Includono sia l'Apparato muscolare (consente i movimenti volontari) sia il Sistema scheletrico (sostiene il corpo e permette i movimenti)."
+  },
+  {
+    "domanda": "Quale dei seguenti apparati NON appartiene alla vita vegetativa (funzioni automatiche)?",
+    "risposte": [
+      "Apparato digerente",
+      "Apparato respiratorio",
+      "Apparato muscolare",
+      "Apparato circolatorio"
+    ],
+    "corretta": 2,
+    "spiegazione": "L'apparato muscolare consente i movimenti volontari e fa parte della vita di relazione. Gli apparati della vita vegetativa controllano funzioni automatiche e includono l'apparato digerente, respiratorio e circolatorio."
+  }
+]
